@@ -20,4 +20,11 @@ installs:
 uninstalls:
   - firefox
   - any other system apps
-  
+
+dev tweaks:
+  - mkdir git && cd git
+  - python3 -m venv venv
+  - nano ~/.bashrc
+    - source /home/mikel/git/venv/bin/activate
+  - pip install --upgrade pip
+  - pip install checkov ansible
