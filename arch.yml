@@ -1,0 +1,44 @@
+Install:
+  Configure Wifi:
+    - ip add show (note the wireless adapater name, likely wlan0)
+      or
+      iwctl device list
+    - iwctl station <Device Name> connect <SSID>
+      - Enter password
+  Start/Run Arch Install Script:
+    - archinstall
+    - select Mirrors and set Mirror Region to US
+    - select Disk Configuration and then "Use a best effort default partition layout"
+      - select your local drive, not the USB
+      - select EXT4 (most stable currently)
+      - select Yes to create a separate partition for /home
+    - set your hostname
+    - set root pssword
+    - create your user
+      - select yes to add to superuser (sudo)
+    - select "Profile" then "Type" then "Desktop" and finally pick either "Gnome" or "KDE Plasma" (I prefer Plasma)
+      - leave Graphics Drive to Default (All Open Source)
+      - For the greeter, choose GDM if using Gnome or SDDM if using KDE (they don't mix)
+      - Choose "Pipewide" as its the newer standard and replaces pulseaudio
+    - select "kernels" and select both "Linux" and "Linux-lts"
+      - It is helpful to boot to LTS Kernel if something broken on the other kernel
+    - Select to use Network Manager (Required by Gnome and Kde)
+    - Set timezone to Eastern
+    - Click install
+  First boot installs (don't sudo su):
+    - sudo pacman -Syu (run updates)
+    - sudo pacman -S bluez bluez-utils flatpak git intel-medi-driver intel-ucode nano curl wget unzip pamac-aur power-profiles-daemon python-pip thermald ufw
+    - sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+    - yay -Y --gendb
+    - yay -Syu --devel
+    - yay -Y --devel --save
+    - yay laptop-mode-tools
+      - select option 1 and press enter (type 1)
+      - keep hitting enter to accept defaults
+    - sudo pacman -S pamac-aur
+  Service setup:
+    - sudo systemctl enable bluez && sudo systemctl start bluez
+    - sudo systemctl enable ufw && sudo systemctl start ufw
+    - sudo systemctl enable power-profiles-daemon && sudo systemctl start power-profiles-daemon
+    - sudo systemctl enable thermald && sudo systemctl start thermald
+    
