@@ -26,17 +26,24 @@ Install:
     - Set timezone to Eastern
     - Click install
   First boot installs (don't sudo su):
-    - sudo pacman -Syu (run updates)
-    - sudo pacman -S bluez bluez-utils flatpak git intel-media-driver intel-ucode nano curl wget unzip ufw tlp
-    - sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-    - yay -Y --gendb
-    - yay -Syu --devel
-    - yay -Y --devel --save
-    - yay 
-    - sudo pacman -S pamac-aur
+    - |
+      sudo pacman -Syu (run updates)
+      sudo pacman -S bluez bluez-utils flatpak git intel-media-driver intel-ucode nano curl wget unzip ufw tlp
+      sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+      yay -Y --gendb
+      yay -Syu --devel
+      yay -Y --devel --save
+      yay chrome
+      - look for "aur/google-chrome" (likely 14)
+      - Enter that number, press enter until its installed
   Service setup:
-    - sudo systemctl enable bluez && sudo systemctl start bluez
-    - sudo systemctl enable ufw && sudo systemctl start ufw
-    - sudo systemctl enable power-profiles-daemon && sudo systemctl start power-profiles-daemon
-    - sudo systemctl enable thermald && sudo systemctl start thermald
+    - |
+      sudo systemctl enable bluetooth.service && sudo systemctl start bluetooth.service
+      sudo systemctl enable ufw && sudo systemctl start ufw
+      sudo systemctl enable tlp && sudo systemctl start tlp
+  Configure your way:
+    - Edit system settings
+    - Log into Chrome
+    - Do whatever
+
     
