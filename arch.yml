@@ -27,14 +27,12 @@ Install:
     - Click install
   First boot installs (don't sudo su):
     - sudo pacman -Syu (run updates)
-    - sudo pacman -S bluez bluez-utils flatpak git intel-medi-driver intel-ucode nano curl wget unzip pamac-aur power-profiles-daemon python-pip thermald ufw
+    - sudo pacman -S bluez bluez-utils flatpak git intel-media-driver intel-ucode nano curl wget unzip ufw tlp
     - sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
     - yay -Y --gendb
     - yay -Syu --devel
     - yay -Y --devel --save
-    - yay laptop-mode-tools
-      - select option 1 and press enter (type 1)
-      - keep hitting enter to accept defaults
+    - yay 
     - sudo pacman -S pamac-aur
   Service setup:
     - sudo systemctl enable bluez && sudo systemctl start bluez
