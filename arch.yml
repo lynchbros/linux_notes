@@ -5,6 +5,7 @@ Install:
       iwctl device list
     - iwctl station <Device Name> connect <SSID>
       - Enter password
+      
   Start/Run Arch Install Script:
     - archinstall
     - select Mirrors and set Mirror Region to US
@@ -25,6 +26,7 @@ Install:
     - Select to use Network Manager (Required by Gnome and Kde)
     - Set timezone to Eastern
     - Click install
+    
   First boot installs (don't sudo su):
     - |
       sudo pacman -Syu (run updates)
@@ -36,24 +38,23 @@ Install:
       yay chrome
       - look for "aur/google-chrome" (likely 14)
       - Enter that number, press enter until its installed
+      
   Service setup:
     - |
       sudo systemctl enable bluetooth.service && sudo systemctl start bluetooth.service
       sudo systemctl enable ufw && sudo systemctl start ufw
       sudo systemctl enable tlp && sudo systemctl start tlp
+      
   Setup Fans to cool more aggressively:
-    - yay fw-ectool (should be only 1 option for git)
-    - sudo ectool thermalget (record output ignoring the name column)
-    - we want to reduce the fan_off column to 295Kelvin which is roughly 70F so the fans stay on most of the time
-    - run the below commands keeping each column the same except for the fan_off column
-    - |
-      ectool thermalset 0 0 361 371 295 342
-      ectool thermalset 1 0 361 371 295 353
-      ectool thermalset 2 0 360 370 295 342
-      ectool thermalset 3 0 323 333 295 323
-      ectool thermalset 4 388 393 400 295 363
-      ectool thermalset 5 0 361 371 295 342
-    - ectool autofanctrl
+    - git clone "https://github.com/TamtamHero/fw-fanctrl.git"
+    - cd fw-fanctrl
+    - sudo ./install.sh
+    - nano /etc/fw-fanctrl/config.json
+      - edit your presets
+      - I change default to agile and increase the fan speeds starting with 30
+    - sudo systemctl enable fw-fanctrl.service
+    - sudo systemctl start fw-fanctrl.service
+    
   Configure your way:
     - Edit system settings
     - Log into Chrome
