@@ -41,7 +41,7 @@ Install:
 
   Setup Firmware Manager and check for updates:
     - |
-      sudo pacman -S fwupd
+      sudo pacman -S fwupd lshw dmidecode
       sudo systemctl enable fwupd-refresh.timer
       sudo systemctl start fwupd-refresh.timer
       sudo fwupdmgr get-devices
