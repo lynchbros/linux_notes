@@ -38,6 +38,16 @@ Install:
       yay chrome
       - look for "aur/google-chrome" (likely 14)
       - Enter that number, press enter until its installed
+
+  Setup Firmware Manager and check for updates:
+    - |
+      sudo pacman -S fwupd
+      sudo systemctl enable fwupd-refresh.timer
+      sudo systemctl start fwupd-refresh.timer
+      sudo fwupdmgr get-devices
+      sudo fwupdmgr refresh
+      sudo fwupdmgr get-updates
+      sudo fwupdmgr update
       
   Service setup:
     - |
