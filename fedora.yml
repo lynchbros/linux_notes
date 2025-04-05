@@ -1,18 +1,28 @@
 installs:
-  - extension manager:
+  - extension manager (via Software Center:
     - alphabetical app grid
     - dash to panel
     - bing wallpapers
-  - gnome-tweaks:
+  - sudo dnf install gnome-tweaks:
     - add minimize/maximize buttons
     - center new windows
   - google chrome (download rpm)
-  - vs code (download rpm)
-  - sudo dnf install python3-pip
+  - sudo dnf install ufw tlp
+    - sudo systemctl enable ufw
+    - sudo systemctl start ufw
+    - sudo ufw enable
+    - sudo systemctl enable tlp
+    - sudo systemctl start tlp
+    - sudo tlp start
   - rpm fushion:
-    - sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
     - sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-    - sudo reboot now
+    - sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
+    - sudo dnf swap ffmpeg-free ffmpeg --allowerasing
+    - sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+    - # For Intel Only Systems
+      - sudo dnf install intel-media-driver
+    - # For NVidia Systems
+      - sudo dnf install akmod-nvidia xorg-x11-drv-nvidia-cuda libva-nvidia-driver
   - software center:
     - scroll to bottom and select "Codecs"
     - install all of the codecs except for the eSpeak
@@ -20,11 +30,3 @@ installs:
 uninstalls:
   - firefox
   - any other system apps
-
-dev tweaks:
-  - mkdir git && cd git
-  - python3 -m venv venv
-  - nano ~/.bashrc
-    - source /home/mikel/git/venv/bin/activate
-  - pip install --upgrade pip
-  - pip install checkov ansible
