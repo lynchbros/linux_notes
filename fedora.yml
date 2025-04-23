@@ -7,13 +7,10 @@ installs:
     - add minimize/maximize buttons
     - center new windows
   - google chrome (download rpm)
-  - sudo dnf install ufw tlp tlp-rdw
+  - sudo dnf install ufw
     - sudo systemctl enable ufw
     - sudo systemctl start ufw
     - sudo ufw enable
-    - sudo systemctl enable tlp
-    - sudo systemctl start tlp
-    - sudo tlp start
   - rpm fushion:
     - sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
     - sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
