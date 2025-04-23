@@ -19,6 +19,7 @@ installs:
     - sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
     - sudo dnf update @core
     - sudo dnf swap ffmpeg-free ffmpeg --allowerasing
+    - sudo dnf install libavcodec-freeworld
     - sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
     - # For Intel Only Systems
       - sudo dnf install intel-media-driver
