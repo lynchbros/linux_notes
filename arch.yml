@@ -30,7 +30,7 @@ Install:
   First boot installs (don't sudo su):
     - |
       sudo pacman -Syu (run updates)
-      sudo pacman -S bluez bluez-utils flatpak git intel-media-driver intel-ucode nano curl wget unzip ufw tlp
+      sudo pacman -S bluez bluez-utils flatpak git intel-media-driver intel-ucode nano curl wget unzip ufw tlp python python-pip
       sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
       yay -Y --gendb
       yay -Syu --devel
