@@ -78,7 +78,7 @@
 
   sudo dnf update --refresh
 
-  sudo dnf5 install gstreamer1-plugins-base-tools gstreamer1-plugins-good-extras gstreamer1-plugins-ugly gstreamer1-plugins-bad-freeworld gstreamer1-libav gstreamer1-plugin-openh264 lame* ffmpeg libva libva-utils vdpauinfo intel-media-driver mesa-va-drivers mesa-vdpau-drivers
+  sudo dnf5 install -y --allowerasing gstreamer1-plugins-base-tools gstreamer1-plugins-good-extras gstreamer1-plugins-ugly gstreamer1-plugins-bad-freeworld gstreamer1-libav gstreamer1-plugin-openh264 lame* ffmpeg libva libva-utils vdpauinfo intel-media-driver mesa-va-drivers mesa-vdpau-drivers
   ```
 
 8. Enable HW Acceleration in Chrome:
